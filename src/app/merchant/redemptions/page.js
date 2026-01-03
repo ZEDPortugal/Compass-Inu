@@ -12,11 +12,11 @@ export default function MerchantRedemptions() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const redemptions = [
-    { id: 1, userId: 'USR001', userName: 'Maria Santos', reward: '20% Off Purchase', pointsSpent: 500, status: 'approved', redeemedAt: '2026-01-03T10:30:00' },
-    { id: 2, userId: 'USR002', userName: 'Juan dela Cruz', reward: 'Free Kape', pointsSpent: 200, status: 'pending', redeemedAt: '2026-01-02T16:00:00' },
-    { id: 3, userId: 'USR003', userName: 'Pedro Reyes', reward: '₱500 Voucher', pointsSpent: 800, status: 'approved', redeemedAt: '2026-01-01T14:15:00' },
-    { id: 4, userId: 'USR004', userName: 'Ana Gonzales', reward: 'Free Delivery', pointsSpent: 300, status: 'approved', redeemedAt: '2025-12-31T12:00:00' },
-    { id: 5, userId: 'USR005', userName: 'Jose Mendoza', reward: '15% Discount', pointsSpent: 400, status: 'rejected', redeemedAt: '2025-12-30T09:30:00' },
+    { id: 1, userId: 'USR001', userName: 'Sarah Chen', reward: '20% Off Purchase', pointsSpent: 500, status: 'approved', redeemedAt: '2026-01-03T10:30:00' },
+    { id: 2, userId: 'USR002', userName: 'Michael Johnson', reward: 'Free Coffee', pointsSpent: 200, status: 'pending', redeemedAt: '2026-01-02T16:00:00' },
+    { id: 3, userId: 'USR003', userName: 'David Park', reward: '$50 Voucher', pointsSpent: 800, status: 'approved', redeemedAt: '2026-01-01T14:15:00' },
+    { id: 4, userId: 'USR004', userName: 'Emily Roberts', reward: 'Free Delivery', pointsSpent: 300, status: 'approved', redeemedAt: '2025-12-31T12:00:00' },
+    { id: 5, userId: 'USR005', userName: 'James Wilson', reward: '15% Discount', pointsSpent: 400, status: 'rejected', redeemedAt: '2025-12-30T09:30:00' },
   ];
 
   const statusConfig = {

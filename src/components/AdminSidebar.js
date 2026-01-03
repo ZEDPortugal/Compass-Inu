@@ -38,6 +38,11 @@ export default function AdminSidebar({ active }) {
       {/* Mobile Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0f0a1a]/95 backdrop-blur-xl border-b border-[#3d2d5c]/50 z-50 px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
+          <img 
+            src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
+            alt="Compass Inu Logo" 
+            className="w-8 h-8 rounded-lg"
+          />
           <h1 className="text-white font-bold text-lg">Compass <span className="text-[#f59e0b]">Inu</span></h1>
           <span className="text-[10px] text-gray-500 bg-[#1e1433] px-2 py-0.5 rounded">Admin</span>
         </Link>
@@ -63,6 +68,11 @@ export default function AdminSidebar({ active }) {
       } lg:translate-x-0`}>
         <div className="p-6 h-full flex flex-col">
           <Link href="/" className="flex items-center gap-3 mb-8 group" onClick={() => isMobile && setIsOpen(false)}>
+            <img 
+              src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
+              alt="Compass Inu Logo" 
+              className="w-10 h-10 rounded-xl group-hover:scale-105 transition-transform"
+            />
             <div>
               <h1 className="text-white font-bold text-xl group-hover:text-[#f59e0b] transition-colors">Compass Inu</h1>
               <p className="text-gray-500 text-xs">Admin Panel</p>

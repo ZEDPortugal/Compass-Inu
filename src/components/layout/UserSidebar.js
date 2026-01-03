@@ -2,20 +2,60 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FiHome, FiGift, FiList, FiUser, FiLogOut, FiChevronRight, FiMenu, FiX } from 'react-icons/fi';
+import { FiHome, FiGift, FiList, FiUser, FiLogOut, FiChevronRight, FiMenu, FiX, FiShoppingCart, FiSend, FiCamera, FiBook, FiCreditCard, FiUsers } from 'react-icons/fi';
 import { RiExchangeDollarLine, RiHistoryLine } from 'react-icons/ri';
+import { BsQrCodeScan, BsBank, BsGift } from 'react-icons/bs';
+import { HiOutlineAcademicCap } from 'react-icons/hi';
 
 const UserSidebar = ({ active }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [expandedSection, setExpandedSection] = useState(null);
 
-  const navItems = [
-    { name: 'Dashboard', icon: FiHome, href: '/user/dashboard', id: 'dashboard' },
-    { name: 'Rewards', icon: FiGift, href: '/user/rewards', id: 'rewards' },
-    { name: 'Transactions', icon: FiList, href: '/user/transactions', id: 'transactions' },
-    { name: 'Redeem', icon: RiExchangeDollarLine, href: '/user/redeem', id: 'redeem' },
-    { name: 'History', icon: RiHistoryLine, href: '/user/history', id: 'history' },
-    { name: 'Profile', icon: FiUser, href: '/user/profile', id: 'profile' },
+  // Main navigation - The Three Pillars + Core
+  const navSections = [
+    {
+      title: 'Suki Points',
+      color: 'text-[#06b6d4]',
+      items: [
+        { name: 'Dashboard', icon: FiHome, href: '/user/dashboard', id: 'dashboard' },
+        { name: 'Scan to Earn', icon: BsQrCodeScan, href: '/user/scan', id: 'scan' },
+        { name: 'Gift Points', icon: BsGift, href: '/user/gift', id: 'gift' },
+        { name: 'Rewards', icon: FiGift, href: '/user/rewards', id: 'rewards' },
+        { name: 'Catalog', icon: FiShoppingCart, href: '/user/catalog', id: 'catalog' },
+        { name: 'Redeem', icon: RiExchangeDollarLine, href: '/user/redeem', id: 'redeem' },
+      ]
+    },
+    {
+      title: 'Digital Library',
+      color: 'text-[#8b5cf6]',
+      items: [
+        { name: 'Learn', icon: HiOutlineAcademicCap, href: '/user/learn', id: 'learn' },
+      ]
+    },
+    {
+      title: 'Everyday Points',
+      color: 'text-[#f59e0b]',
+      items: [
+        { name: 'Credit Profile', icon: BsBank, href: '/user/borrow', id: 'borrow' },
+      ]
+    },
+    {
+      title: 'Community',
+      color: 'text-[#ec4899]',
+      items: [
+        { name: 'Governance', icon: FiUsers, href: '/user/community', id: 'community' },
+      ]
+    },
+    {
+      title: 'Account',
+      color: 'text-gray-400',
+      items: [
+        { name: 'Ledger', icon: FiList, href: '/user/transactions', id: 'transactions' },
+        { name: 'History', icon: RiHistoryLine, href: '/user/history', id: 'history' },
+        { name: 'Profile', icon: FiUser, href: '/user/profile', id: 'profile' },
+      ]
+    },
   ];
 
   useEffect(() => {
@@ -47,6 +87,11 @@ const UserSidebar = ({ active }) => {
       {/* Mobile Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0f0a1a]/95 backdrop-blur-xl border-b border-[#3d2d5c]/50 z-50 px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
+          <img 
+            src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
+            alt="Compass Inu Logo" 
+            className="w-8 h-8 rounded-lg"
+          />
           <h1 className="text-white font-bold text-lg">Compass <span className="text-[#8b5cf6]">Inu</span></h1>
         </Link>
         <button 
@@ -74,6 +119,11 @@ const UserSidebar = ({ active }) => {
         <div className="p-6 h-full flex flex-col">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 mb-8 group" onClick={() => isMobile && setIsOpen(false)}>
+            <img 
+              src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
+              alt="Compass Inu Logo" 
+              className="w-10 h-10 rounded-xl group-hover:scale-105 transition-transform"
+            />
             <div>
               <h1 className="text-white font-bold text-xl group-hover:text-[#8b5cf6] transition-colors">Compass Inu</h1>
               <p className="text-gray-500 text-xs">User Portal</p>
@@ -81,27 +131,36 @@ const UserSidebar = ({ active }) => {
           </Link>
           
           {/* Navigation */}
-          <nav className="space-y-1 flex-1 overflow-y-auto">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => isMobile && setIsOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden ${
-                  active === item.id 
-                    ? 'bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white shadow-lg shadow-violet-500/25' 
-                    : 'text-gray-400 hover:text-white hover:bg-[#1e1433]'
-                }`}
-              >
-                {active !== item.id && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6]/0 to-[#7c3aed]/0 group-hover:from-[#8b5cf6]/10 group-hover:to-[#7c3aed]/10 transition-all duration-300" />
-                )}
-                <item.icon className={`text-lg transition-all duration-300 ${active === item.id ? 'text-white' : 'group-hover:text-[#8b5cf6] group-hover:scale-110'}`} />
-                <span className="font-medium relative z-10">{item.name}</span>
-                {active === item.id && (
-                  <FiChevronRight className="ml-auto text-white/70" />
-                )}
-              </Link>
+          <nav className="space-y-4 flex-1 overflow-y-auto pr-2 -mr-2">
+            {navSections.map((section) => (
+              <div key={section.title}>
+                <p className={`text-xs font-semibold uppercase tracking-wider mb-2 px-4 ${section.color}`}>
+                  {section.title}
+                </p>
+                <div className="space-y-1">
+                  {section.items.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => isMobile && setIsOpen(false)}
+                      className={`flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300 group relative overflow-hidden ${
+                        active === item.id 
+                          ? 'bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white shadow-lg shadow-violet-500/25' 
+                          : 'text-gray-400 hover:text-white hover:bg-[#1e1433]'
+                      }`}
+                    >
+                      {active !== item.id && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6]/0 to-[#7c3aed]/0 group-hover:from-[#8b5cf6]/10 group-hover:to-[#7c3aed]/10 transition-all duration-300" />
+                      )}
+                      <item.icon className={`text-lg transition-all duration-300 ${active === item.id ? 'text-white' : 'group-hover:text-[#8b5cf6] group-hover:scale-110'}`} />
+                      <span className="font-medium relative z-10 text-sm">{item.name}</span>
+                      {active === item.id && (
+                        <FiChevronRight className="ml-auto text-white/70" />
+                      )}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             ))}
           </nav>
           

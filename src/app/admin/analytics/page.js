@@ -120,18 +120,18 @@ export default function AdminAnalytics() {
 
   const categoryData = [
     { name: 'Food & Beverage', value: 4200, color: '#f59e0b' },
-    { name: 'Sari-Sari Stores', value: 2800, color: '#d97706' },
+    { name: 'Convenience Stores', value: 2800, color: '#d97706' },
     { name: 'Cooperatives', value: 1900, color: '#fbbf24' },
     { name: 'Educational', value: 1200, color: '#10b981' },
     { name: 'Other MSMEs', value: 800, color: '#ec4899' },
   ];
 
   const topMerchants = [
-    { name: 'Kape Tayo', transactions: 4521, revenue: 235092, growth: 12.5 },
-    { name: 'Cooperative ng Barangay', transactions: 3890, revenue: 410790, growth: 8.3 },
-    { name: 'Fit Filipino Gym', transactions: 3210, revenue: 167000, growth: 15.2 },
-    { name: 'Tindahan ni Aling Rosa', transactions: 2890, revenue: 150280, growth: -2.1 },
-    { name: 'Aklatan ni Lolo', transactions: 2100, revenue: 109200, growth: 5.8 },
+    { name: 'Urban Café', transactions: 4521, revenue: 235092, growth: 12.5 },
+    { name: 'Community Cooperative', transactions: 3890, revenue: 410790, growth: 8.3 },
+    { name: 'Fitness Plus Gym', transactions: 3210, revenue: 167000, growth: 15.2 },
+    { name: 'Metro Convenience Store', transactions: 2890, revenue: 150280, growth: -2.1 },
+    { name: 'BookWorld Library', transactions: 2100, revenue: 109200, growth: 5.8 },
   ];
 
   const maxRevenue = Math.max(...weeklyData.map(d => d.revenue));
@@ -179,10 +179,10 @@ export default function AdminAnalytics() {
         {/* Key Metrics */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-6 sm:mb-8">
           {[
-            { label: 'Ecosystem Value', value: stats.totalRevenue, prefix: '₱', Icon: FiDollarSign, color: 'green', change: '+12.5%' },
+            { label: 'Ecosystem Value', value: stats.totalRevenue, prefix: '$', Icon: FiDollarSign, color: 'green', change: '+12.5%' },
             { label: 'Suki Members', value: stats.totalUsers, Icon: FiUsers, color: 'purple', change: '+8.3%' },
-            { label: 'Transaksyon', value: stats.totalTransactions, Icon: FiRefreshCw, color: 'cyan', change: '+15.2%' },
-            { label: 'Avg Order Value', value: stats.avgOrderValue, prefix: '₱', Icon: FiBarChart2, color: 'orange', change: '+3.1%' },
+            { label: 'Transactions', value: stats.totalTransactions, Icon: FiRefreshCw, color: 'cyan', change: '+15.2%' },
+            { label: 'Avg Order Value', value: stats.avgOrderValue, prefix: '$', Icon: FiBarChart2, color: 'orange', change: '+3.1%' },
             { label: 'Conversion Rate', value: stats.conversionRate, suffix: '%', Icon: FiTarget, color: 'pink', change: '+0.5%' },
             { label: 'Member Retention', value: stats.retentionRate, suffix: '%', Icon: FiHeart, color: 'red', change: '-1.2%' },
           ].map((stat, index) => (

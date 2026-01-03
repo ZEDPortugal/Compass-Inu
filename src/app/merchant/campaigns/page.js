@@ -12,11 +12,11 @@ export default function MerchantCampaigns() {
   const [selectedCampaign, setSelectedCampaign] = useState(null);
 
   const campaigns = [
-    { id: 1, name: 'Suki Summer Sale', type: 'discount', status: 'live', startDate: '2024-06-01', endDate: '2024-08-31', redemptions: 156, pointsCost: 500 },
-    { id: 2, name: 'Double Suki Points Weekend', type: 'multiplier', status: 'live', startDate: '2026-01-05', endDate: '2026-01-07', redemptions: 89, pointsCost: 200 },
-    { id: 3, name: 'Bagong Taon Special', type: 'bonus', status: 'live', startDate: '2025-12-26', endDate: '2026-01-15', redemptions: 234, pointsCost: 300 },
-    { id: 4, name: 'Araw ng mga Puso Deal', type: 'discount', status: 'pending', startDate: '2026-02-10', endDate: '2026-02-14', redemptions: 0, pointsCost: 400 },
-    { id: 5, name: 'Barangay Referral Bonus', type: 'reward', status: 'draft', startDate: '', endDate: '', redemptions: 0, pointsCost: 800 },
+    { id: 1, name: 'Summer Sale Event', type: 'discount', status: 'live', startDate: '2024-06-01', endDate: '2024-08-31', redemptions: 156, pointsCost: 500 },
+    { id: 2, name: 'Double Points Weekend', type: 'multiplier', status: 'live', startDate: '2026-01-05', endDate: '2026-01-07', redemptions: 89, pointsCost: 200 },
+    { id: 3, name: 'New Year Special', type: 'bonus', status: 'live', startDate: '2025-12-26', endDate: '2026-01-15', redemptions: 234, pointsCost: 300 },
+    { id: 4, name: 'Valentine\'s Day Deal', type: 'discount', status: 'pending', startDate: '2026-02-10', endDate: '2026-02-14', redemptions: 0, pointsCost: 400 },
+    { id: 5, name: 'Community Referral Bonus', type: 'reward', status: 'draft', startDate: '', endDate: '', redemptions: 0, pointsCost: 800 },
   ];
 
   const statusColors = {

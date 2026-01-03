@@ -15,12 +15,12 @@ export default function UserRedeem() {
   const userPoints = 2500;
 
   const rewards = [
-    { id: 1, name: '20% Off Purchase', merchant: 'Kape Tayo', pointsCost: 500, Icon: FiCoffee, endDate: '2026-03-31' },
-    { id: 2, name: 'Free Gym Session', merchant: 'Fit Filipino Gym', pointsCost: 1000, Icon: FiAward, endDate: '2026-02-28' },
-    { id: 3, name: '₱500 Store Credit', merchant: 'SM Supermarket', pointsCost: 800, Icon: FiGift, endDate: '2026-04-15' },
-    { id: 4, name: 'Free Movie Ticket', merchant: 'SM Cinema', pointsCost: 1200, Icon: FiFilm, endDate: '2026-01-31' },
-    { id: 5, name: '15% Off Fashion', merchant: 'Ukay-Ukay Queen', pointsCost: 400, Icon: FiShoppingBag, endDate: '2026-02-15' },
-    { id: 6, name: 'Free Delivery', merchant: 'Tindahan ni Aling Rosa', pointsCost: 300, Icon: FiTruck, endDate: '2026-03-01' },
+    { id: 1, name: '20% Off Purchase', merchant: 'Urban Café', pointsCost: 500, Icon: FiCoffee, endDate: '2026-03-31' },
+    { id: 2, name: 'Free Gym Session', merchant: 'FitLife Gym', pointsCost: 1000, Icon: FiAward, endDate: '2026-02-28' },
+    { id: 3, name: '$50 Store Credit', merchant: 'Metro Supermarket', pointsCost: 800, Icon: FiGift, endDate: '2026-04-15' },
+    { id: 4, name: 'Free Movie Ticket', merchant: 'Cineplex Theater', pointsCost: 1200, Icon: FiFilm, endDate: '2026-01-31' },
+    { id: 5, name: '15% Off Fashion', merchant: 'Fashion Forward', pointsCost: 400, Icon: FiShoppingBag, endDate: '2026-02-15' },
+    { id: 6, name: 'Free Delivery', merchant: 'Green Valley Market', pointsCost: 300, Icon: FiTruck, endDate: '2026-03-01' },
   ];
 
   const handleRedeem = () => {

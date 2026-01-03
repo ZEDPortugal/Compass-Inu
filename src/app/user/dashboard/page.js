@@ -1,117 +1,76 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { FiHome, FiGift, FiList, FiUser, FiLogOut, FiChevronRight, FiStar, FiTrendingUp, FiClock, FiAward, FiShoppingBag, FiArrowUp, FiMenu, FiX } from 'react-icons/fi';
-import { RiExchangeDollarLine, RiHistoryLine } from 'react-icons/ri';
-
-const Sidebar = ({ active }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const navItems = [
-    { name: 'Dashboard', icon: FiHome, href: '/user/dashboard', id: 'dashboard' },
-    { name: 'Rewards', icon: FiGift, href: '/user/rewards', id: 'rewards' },
-    { name: 'Transactions', icon: FiList, href: '/user/transactions', id: 'transactions' },
-    { name: 'Redeem', icon: RiExchangeDollarLine, href: '/user/redeem', id: 'redeem' },
-    { name: 'History', icon: RiHistoryLine, href: '/user/history', id: 'history' },
-    { name: 'Profile', icon: FiUser, href: '/user/profile', id: 'profile' },
-  ];
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-      if (window.innerWidth >= 1024) setIsOpen(false);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = isOpen && isMobile ? 'hidden' : 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isOpen, isMobile]);
-
-  return (
-    <>
-      <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0f0a1a]/95 backdrop-blur-xl border-b border-[#3d2d5c]/50 z-50 px-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <h1 className="text-white font-bold text-lg">Compass <span className="text-[#8b5cf6]">Inu</span></h1>
-        </Link>
-        <button onClick={() => setIsOpen(!isOpen)} className="p-2 rounded-xl bg-[#1e1433] border border-[#3d2d5c] text-gray-400 hover:text-white transition-colors">
-          {isOpen ? <FiX className="w-6 h-6" /> : <FiMenu className="w-6 h-6" />}
-        </button>
-      </header>
-
-      {isOpen && isMobile && <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden" onClick={() => setIsOpen(false)} />}
-
-      <aside className={`fixed left-0 top-0 h-full w-64 bg-[#0f0a1a]/95 backdrop-blur-xl border-r border-[#3d2d5c]/50 z-50 transform transition-transform duration-300 ${isMobile ? (isOpen ? 'translate-x-0' : '-translate-x-full') : 'translate-x-0'} lg:translate-x-0`}>
-        <div className="p-6 h-full flex flex-col">
-          <Link href="/" className="flex items-center gap-3 mb-8 group" onClick={() => isMobile && setIsOpen(false)}>
-            <div>
-              <h1 className="text-white font-bold text-xl group-hover:text-[#8b5cf6] transition-colors">Compass Inu</h1>
-              <p className="text-gray-500 text-xs">User Portal</p>
-            </div>
-          </Link>
-          <nav className="space-y-1 flex-1 overflow-y-auto">
-            {navItems.map((item) => (
-              <Link key={item.name} href={item.href} onClick={() => isMobile && setIsOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden ${active === item.id ? 'bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white shadow-lg shadow-violet-500/25' : 'text-gray-400 hover:text-white hover:bg-[#1e1433]'}`}>
-                {active !== item.id && <div className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6]/0 to-[#7c3aed]/0 group-hover:from-[#8b5cf6]/10 group-hover:to-[#7c3aed]/10 transition-all duration-300" />}
-                <item.icon className={`text-lg transition-all duration-300 ${active === item.id ? 'text-white' : 'group-hover:text-[#8b5cf6] group-hover:scale-110'}`} />
-                <span className="font-medium relative z-10">{item.name}</span>
-                {active === item.id && <FiChevronRight className="ml-auto text-white/70" />}
-              </Link>
-            ))}
-          </nav>
-          <div className="pt-4 border-t border-[#3d2d5c]/50">
-            <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#1e1433] transition-all duration-300 group cursor-pointer">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#8b5cf6] to-[#7c3aed] rounded-full flex items-center justify-center"><span className="text-white font-bold">U</span></div>
-              <div className="flex-1 min-w-0"><p className="text-white font-medium truncate text-sm">User</p><p className="text-gray-500 text-xs truncate">user@compass.com</p></div>
-              <Link href="/auth/login" onClick={() => isMobile && setIsOpen(false)} className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all"><FiLogOut className="w-4 h-4" /></Link>
-            </div>
-          </div>
-        </div>
-      </aside>
-      <div className="lg:hidden h-16" />
-    </>
-  );
-};
+import { FiStar, FiTrendingUp, FiAward, FiShoppingBag, FiArrowUp, FiGift } from 'react-icons/fi';
+import { RiExchangeDollarLine } from 'react-icons/ri';
+import UserSidebar from '@/components/UserSidebar';
 
 export default function UserDashboard() {
   const userData = {
-    name: 'Juan',
+    name: 'Alex',
     points: 3250,
-    tier: 'Suki',
-    nextTier: 'Super Suki',
+    tier: 'Gold',
+    nextTier: 'Platinum',
     pointsToNext: 1750,
     totalEarned: 12500,
   };
 
+  // Floating particles for visual effect
+  const particles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 20 + 10,
+    delay: Math.random() * 5,
+  }));
+
   const recentTransactions = [
-    { id: 1, merchant: 'Aling Nena\'s Carinderia', points: 150, type: 'earned', date: '2026-01-03' },
+    { id: 1, merchant: 'Urban Café', points: 150, type: 'earned', date: '2026-01-03' },
     { id: 2, merchant: 'TechMart Electronics', points: 300, type: 'earned', date: '2026-01-02' },
     { id: 3, merchant: 'Reward Redemption', points: -500, type: 'redeemed', date: '2026-01-01' },
-    { id: 4, merchant: 'Sari-Sari ni Mang Boy', points: 200, type: 'earned', date: '2025-12-31' },
+    { id: 4, merchant: 'Green Valley Market', points: 200, type: 'earned', date: '2025-12-31' },
   ];
 
   const availableRewards = [
-    { id: 1, name: 'Free Kape', points: 200, merchant: 'Kape Tayo' },
-    { id: 2, name: '20% Off sa Bilihin', points: 500, merchant: 'TechMart' },
-    { id: 3, name: '₱500 Load', points: 800, merchant: 'COMPASS INU' },
+    { id: 1, name: 'Free Coffee', points: 200, merchant: 'Urban Café' },
+    { id: 2, name: '20% Off Electronics', points: 500, merchant: 'TechMart' },
+    { id: 3, name: '$50 Store Credit', points: 800, merchant: 'COMPASS INU' },
   ];
 
   return (
     <div className="min-h-screen bg-[#0f0a1a]">
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#8b5cf6]/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#a78bfa]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#8b5cf6]/10 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#a78bfa]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-[#7c3aed]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(rgba(139,92,246,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(139,92,246,0.3) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+        
+        {/* Floating Particles */}
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute rounded-full bg-gradient-to-r from-[#8b5cf6]/20 to-[#a78bfa]/20"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              animation: `float ${particle.duration}s ease-in-out infinite`,
+              animationDelay: `${particle.delay}s`,
+            }}
+          />
+        ))}
       </div>
-      <Sidebar active="dashboard" />
+      <UserSidebar active="dashboard" />
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8 relative z-10">
         <header className="mb-6 sm:mb-8 animate-[fadeInDown_0.5s_ease-out]">
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Mabuhay, {userData.name}! 👋</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Welcome back, {userData.name}! 👋</h1>
           <p className="text-sm sm:text-base text-gray-400">Here's your COMPASS INU rewards overview</p>
         </header>
 

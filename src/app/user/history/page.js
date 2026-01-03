@@ -11,13 +11,13 @@ export default function UserHistory() {
   const [filter, setFilter] = useState('all');
 
   const ledgerEntries = [
-    { id: 1, type: 'earn', description: 'Purchase at Kape Tayo', points: 450, balance: 2950, createdAt: '2026-01-03T10:30:00' },
+    { id: 1, type: 'earn', description: 'Purchase at Urban Café', points: 450, balance: 2950, createdAt: '2026-01-03T10:30:00' },
     { id: 2, type: 'redeem', description: 'Redeemed: 20% Off Coupon', points: -500, balance: 2500, createdAt: '2026-01-02T16:00:00' },
-    { id: 3, type: 'earn', description: 'Purchase at SM Supermarket', points: 1500, balance: 3000, createdAt: '2026-01-02T14:15:00' },
-    { id: 4, type: 'bonus', description: 'Bonus: Weekend Double Suki Points', points: 200, balance: 1500, createdAt: '2026-01-01T12:00:00' },
-    { id: 5, type: 'redeem', description: 'Redeemed: Free Kape', points: -200, balance: 1300, createdAt: '2025-12-30T09:30:00' },
-    { id: 6, type: 'earn', description: 'Purchase at Fit Filipino Gym', points: 800, balance: 1500, createdAt: '2025-12-28T11:00:00' },
-    { id: 7, type: 'bonus', description: 'Welcome Bonus - Maligayang Pagdating!', points: 500, balance: 700, createdAt: '2025-12-25T00:00:00' },
+    { id: 3, type: 'earn', description: 'Purchase at Metro Supermarket', points: 1500, balance: 3000, createdAt: '2026-01-02T14:15:00' },
+    { id: 4, type: 'bonus', description: 'Bonus: Weekend Double Points', points: 200, balance: 1500, createdAt: '2026-01-01T12:00:00' },
+    { id: 5, type: 'redeem', description: 'Redeemed: Free Coffee', points: -200, balance: 1300, createdAt: '2025-12-30T09:30:00' },
+    { id: 6, type: 'earn', description: 'Purchase at FitLife Gym', points: 800, balance: 1500, createdAt: '2025-12-28T11:00:00' },
+    { id: 7, type: 'bonus', description: 'Welcome Bonus - New Member', points: 500, balance: 700, createdAt: '2025-12-25T00:00:00' },
     { id: 8, type: 'earn', description: 'Signup Reward', points: 200, balance: 200, createdAt: '2025-12-20T10:00:00' },
   ];
 

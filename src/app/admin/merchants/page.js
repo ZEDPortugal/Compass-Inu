@@ -8,18 +8,18 @@ import AdminSidebar from '@/components/AdminSidebar';
 
 // Mock merchants data
 const mockMerchants = [
-  { id: 1, name: 'Kape Tayo', category: 'Food & Beverage', status: 'active', campaigns: 3, totalRedemptions: 1250, rating: 4.8, joinDate: '2025-11-01' },
-  { id: 2, name: 'Tindahan ni Aling Rosa', category: 'Sari-Sari Store', status: 'active', campaigns: 2, totalRedemptions: 890, rating: 4.5, joinDate: '2025-11-15' },
-  { id: 3, name: 'Ukay-Ukay Queen', category: 'Retail', status: 'pending', campaigns: 0, totalRedemptions: 0, rating: 0, joinDate: '2025-12-20' },
-  { id: 4, name: 'Fit Filipino Gym', category: 'Health', status: 'active', campaigns: 5, totalRedemptions: 2100, rating: 4.9, joinDate: '2025-10-05' },
-  { id: 5, name: 'Aklatan ni Lolo', category: 'Educational', status: 'suspended', campaigns: 1, totalRedemptions: 320, rating: 4.2, joinDate: '2025-09-20' },
-  { id: 6, name: 'Cooperative ng Barangay', category: 'Cooperative', status: 'active', campaigns: 4, totalRedemptions: 1680, rating: 4.7, joinDate: '2025-10-28' },
+  { id: 1, name: 'Urban Café', category: 'Food & Beverage', status: 'active', campaigns: 3, totalRedemptions: 1250, rating: 4.8, joinDate: '2025-11-01' },
+  { id: 2, name: 'Green Valley Market', category: 'Grocery Store', status: 'active', campaigns: 2, totalRedemptions: 890, rating: 4.5, joinDate: '2025-11-15' },
+  { id: 3, name: 'Fashion Forward', category: 'Retail', status: 'pending', campaigns: 0, totalRedemptions: 0, rating: 0, joinDate: '2025-12-20' },
+  { id: 4, name: 'FitLife Gym', category: 'Health', status: 'active', campaigns: 5, totalRedemptions: 2100, rating: 4.9, joinDate: '2025-10-05' },
+  { id: 5, name: 'Book World', category: 'Educational', status: 'suspended', campaigns: 1, totalRedemptions: 320, rating: 4.2, joinDate: '2025-09-20' },
+  { id: 6, name: 'Community Cooperative', category: 'Cooperative', status: 'active', campaigns: 4, totalRedemptions: 1680, rating: 4.7, joinDate: '2025-10-28' },
 ];
 
 // Category icons mapping
 const categoryIcons = {
   'Food & Beverage': FiShoppingBag,
-  'Sari-Sari Store': FiShoppingBag,
+  'Grocery Store': FiShoppingBag,
   'Retail': FiGift,
   'Health': FiAward,
   'Educational': FiStar,
@@ -128,7 +128,7 @@ export default function AdminMerchants() {
         <header className="mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-start gap-4 animate-[fadeInDown_0.5s_ease-out]">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">MSME Partner Management</h1>
-            <p className="text-sm sm:text-base text-gray-400">Manage Filipino MSMEs, cooperatives, and their Suki campaigns</p>
+            <p className="text-sm sm:text-base text-gray-400">Manage MSMEs, cooperatives, and their loyalty campaigns</p>
           </div>
           <button
             onClick={() => setShowAddModal(true)}

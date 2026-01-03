@@ -16,12 +16,12 @@ export default function UserRewards() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const rewards = [
-    { id: 1, name: '20% Off Purchase', merchant: 'Kape Tayo', category: 'Food & Beverage', points: 500, Icon: FiCoffee, endDate: '2026-03-31' },
-    { id: 2, name: 'Free Gym Session', merchant: 'Fit Filipino Gym', category: 'Health & Fitness', points: 1000, Icon: FiAward, endDate: '2026-02-28' },
-    { id: 3, name: '₱500 Store Credit', merchant: 'SM Supermarket', category: 'Retail', points: 800, Icon: FiGift, endDate: '2026-04-15' },
-    { id: 4, name: '2x Suki Points Weekend', merchant: 'All Partner MSMEs', category: 'Food & Beverage', points: 200, Icon: FiZap, endDate: '2026-01-15' },
-    { id: 5, name: '500 Bonus Suki Points', merchant: 'Ukay-Ukay Queen', category: 'Retail', points: 300, Icon: FiTarget, endDate: '2026-02-01' },
-    { id: 6, name: 'Free Delivery', merchant: 'Tindahan ni Aling Rosa', category: 'Retail', points: 150, Icon: FiPackage, endDate: '2026-01-31' },
+    { id: 1, name: '20% Off Purchase', merchant: 'Urban Café', category: 'Food & Beverage', points: 500, Icon: FiCoffee, endDate: '2026-03-31' },
+    { id: 2, name: 'Free Gym Session', merchant: 'FitLife Gym', category: 'Health & Fitness', points: 1000, Icon: FiAward, endDate: '2026-02-28' },
+    { id: 3, name: '$50 Store Credit', merchant: 'Metro Supermarket', category: 'Retail', points: 800, Icon: FiGift, endDate: '2026-04-15' },
+    { id: 4, name: '2x Points Weekend', merchant: 'All Partner MSMEs', category: 'Food & Beverage', points: 200, Icon: FiZap, endDate: '2026-01-15' },
+    { id: 5, name: '500 Bonus Points', merchant: 'Fashion Forward', category: 'Retail', points: 300, Icon: FiTarget, endDate: '2026-02-01' },
+    { id: 6, name: 'Free Delivery', merchant: 'Green Valley Market', category: 'Retail', points: 150, Icon: FiPackage, endDate: '2026-01-31' },
   ];
 
   const categories = ['all', 'Food & Beverage', 'Retail', 'Health & Fitness'];

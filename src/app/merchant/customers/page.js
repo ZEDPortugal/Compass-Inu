@@ -11,12 +11,12 @@ export default function MerchantCustomers() {
   const [tierFilter, setTierFilter] = useState('all');
 
   const customers = [
-    { id: 1, name: 'Maria Santos', email: 'maria@email.com', tier: 'Gold', points: 3250, totalSpent: 23400, visits: 24, joinedAt: '2025-06-15' },
-    { id: 2, name: 'Juan dela Cruz', email: 'juan@email.com', tier: 'Platinum', points: 8750, totalSpent: 62400, visits: 56, joinedAt: '2025-03-10' },
-    { id: 3, name: 'Pedro Reyes', email: 'pedro@email.com', tier: 'Silver', points: 1200, totalSpent: 9360, visits: 12, joinedAt: '2025-09-22' },
-    { id: 4, name: 'Ana Gonzales', email: 'ana@email.com', tier: 'Gold', points: 4100, totalSpent: 27040, visits: 31, joinedAt: '2025-05-08' },
-    { id: 5, name: 'Jose Mendoza', email: 'jose@email.com', tier: 'Bronze', points: 650, totalSpent: 4940, visits: 8, joinedAt: '2025-11-01' },
-    { id: 6, name: 'Rosa Villanueva', email: 'rosa@email.com', tier: 'Platinum', points: 12500, totalSpent: 96200, visits: 72, joinedAt: '2025-01-20' },
+    { id: 1, name: 'Sarah Chen', email: 'sarah.chen@email.com', tier: 'Gold', points: 3250, totalSpent: 23400, visits: 24, joinedAt: '2025-06-15' },
+    { id: 2, name: 'Michael Johnson', email: 'michael.j@email.com', tier: 'Platinum', points: 8750, totalSpent: 62400, visits: 56, joinedAt: '2025-03-10' },
+    { id: 3, name: 'David Park', email: 'david.park@email.com', tier: 'Silver', points: 1200, totalSpent: 9360, visits: 12, joinedAt: '2025-09-22' },
+    { id: 4, name: 'Emily Roberts', email: 'emily.r@email.com', tier: 'Gold', points: 4100, totalSpent: 27040, visits: 31, joinedAt: '2025-05-08' },
+    { id: 5, name: 'James Wilson', email: 'james.w@email.com', tier: 'Bronze', points: 650, totalSpent: 4940, visits: 8, joinedAt: '2025-11-01' },
+    { id: 6, name: 'Lisa Anderson', email: 'lisa.a@email.com', tier: 'Platinum', points: 12500, totalSpent: 96200, visits: 72, joinedAt: '2025-01-20' },
   ];
 
   const tierConfig = {

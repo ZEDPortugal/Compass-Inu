@@ -55,6 +55,16 @@ export default function AdminDashboard() {
     return () => clearInterval(timer);
   }, []);
 
+  // Floating particles for visual effect
+  const particles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 20 + 10,
+    delay: Math.random() * 5,
+  }));
+
   const stats = {
     totalUsers: 12458,
     totalMerchants: 534,
@@ -63,11 +73,11 @@ export default function AdminDashboard() {
   };
 
   const activities = [
-    { type: 'transaction', title: 'New Transaction', description: 'Maria Santos earned 500 Suki Points at Kape Tayo', time: '2 min ago', amount: 500 },
-    { type: 'user', title: 'New Member', description: 'juan.delacruz@email.com joined as student member', time: '5 min ago' },
-    { type: 'merchant', title: 'MSME Approved', description: 'Tindahan ni Aling Rosa has been verified', time: '12 min ago' },
-    { type: 'campaign', title: 'Campaign Started', description: 'Pasko Double Suki Points is now live', time: '25 min ago' },
-    { type: 'transaction', title: 'Suki Points Redeemed', description: 'Pedro Reyes redeemed 2000 pts for ₱200 discount', time: '32 min ago', amount: -2000 },
+    { type: 'transaction', title: 'New Transaction', description: 'Sarah Chen earned 500 Suki Points at Urban Café', time: '2 min ago', amount: 500 },
+    { type: 'user', title: 'New Member', description: 'michael.johnson@email.com joined as premium member', time: '5 min ago' },
+    { type: 'merchant', title: 'MSME Approved', description: 'Green Valley Market has been verified', time: '12 min ago' },
+    { type: 'campaign', title: 'Campaign Started', description: 'New Year Double Points is now live', time: '25 min ago' },
+    { type: 'transaction', title: 'Suki Points Redeemed', description: 'David Park redeemed 2000 pts for $20 discount', time: '32 min ago', amount: -2000 },
   ];
 
   const statCards = [
@@ -114,11 +124,33 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-[#0f0a1a]">
-      {/* Background effects */}
+      {/* Animated Background effects */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#f59e0b]/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[#f59e0b]/10 rounded-full blur-[120px]" />
-        <div className="absolute top-1/2 left-1/2 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[#d97706]/5 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-[#f59e0b]/10 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-[#f59e0b]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 w-[150px] sm:w-[300px] h-[150px] sm:h-[300px] bg-[#d97706]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(rgba(245,158,11,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(245,158,11,0.3) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+        
+        {/* Floating Particles */}
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute rounded-full bg-gradient-to-r from-[#f59e0b]/20 to-[#d97706]/20"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              animation: `float ${particle.duration}s ease-in-out infinite`,
+              animationDelay: `${particle.delay}s`,
+            }}
+          />
+        ))}
       </div>
       
       <AdminSidebar active="dashboard" />
@@ -129,7 +161,7 @@ export default function AdminDashboard() {
         <header className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 sm:mb-8 animate-[fadeInDown_0.5s_ease-out]">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1">Compass INU Ecosystem</h1>
-            <p className="text-sm sm:text-base text-gray-400">Empowering Filipino MSMEs, students, and cooperatives through Suki Points.</p>
+            <p className="text-sm sm:text-base text-gray-400">Empowering MSMEs, students, and cooperatives through Suki Points.</p>
           </div>
           <div className="flex items-center gap-3 sm:gap-4">
             <div className="hidden sm:block bg-[#1e1433]/80 backdrop-blur-sm rounded-xl px-4 py-2.5 border border-[#3d2d5c]/50">

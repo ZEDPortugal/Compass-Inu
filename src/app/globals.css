@@ -3,6 +3,12 @@
 /* Enable smooth scrolling globally */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
 }
 
 :root {

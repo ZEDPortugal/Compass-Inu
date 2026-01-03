@@ -3,50 +3,8 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { FiHome, FiUsers, FiBarChart2, FiSettings, FiLogOut, FiChevronRight, FiArrowLeft, FiArrowRight, FiCheck, FiStar, FiPercent, FiZap, FiTag, FiCalendar, FiGift, FiClock, FiTarget } from 'react-icons/fi';
-import { RiExchangeDollarLine, RiMegaphoneLine } from 'react-icons/ri';
-
-const Sidebar = ({ active }) => {
-  const navItems = [
-    { name: 'Dashboard', icon: FiHome, href: '/merchant/dashboard', id: 'dashboard' },
-    { name: 'Campaigns', icon: RiMegaphoneLine, href: '/merchant/campaigns', id: 'campaigns' },
-    { name: 'Redemptions', icon: RiExchangeDollarLine, href: '/merchant/redemptions', id: 'redemptions' },
-    { name: 'Customers', icon: FiUsers, href: '/merchant/customers', id: 'customers' },
-    { name: 'Analytics', icon: FiBarChart2, href: '/merchant/analytics', id: 'analytics' },
-    { name: 'Settings', icon: FiSettings, href: '/merchant/settings', id: 'settings' },
-  ];
-
-  return (
-    <aside className="fixed left-0 top-0 h-full w-64 bg-[#0f0a1a]/95 backdrop-blur-xl border-r border-[#3d2d5c]/50 z-40">
-      <div className="p-6 h-full flex flex-col">
-        <Link href="/" className="flex items-center gap-3 mb-8 group">
-          <div>
-            <h1 className="text-white font-bold text-xl group-hover:text-[#06b6d4] transition-colors">Compass Inu</h1>
-            <p className="text-gray-500 text-xs">Merchant Portal</p>
-          </div>
-        </Link>
-        <nav className="space-y-1 flex-1">
-          {navItems.map((item) => (
-            <Link key={item.name} href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 group relative overflow-hidden ${active === item.id ? 'bg-gradient-to-r from-[#06b6d4] to-[#0891b2] text-white shadow-lg shadow-cyan-500/25' : 'text-gray-400 hover:text-white hover:bg-[#1e1433]'}`}>
-              {active !== item.id && <div className="absolute inset-0 bg-gradient-to-r from-[#06b6d4]/0 to-[#0891b2]/0 group-hover:from-[#06b6d4]/10 group-hover:to-[#0891b2]/10 transition-all duration-300" />}
-              <item.icon className={`text-lg transition-all duration-300 ${active === item.id ? 'text-white' : 'group-hover:text-[#06b6d4] group-hover:scale-110'}`} />
-              <span className="font-medium relative z-10">{item.name}</span>
-              {active === item.id && <FiChevronRight className="ml-auto text-white/70" />}
-            </Link>
-          ))}
-        </nav>
-        <div className="pt-4 border-t border-[#3d2d5c]/50">
-          <div className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#1e1433] transition-all duration-300 group cursor-pointer">
-            <div className="w-10 h-10 bg-gradient-to-br from-[#06b6d4] to-[#0891b2] rounded-full flex items-center justify-center"><span className="text-white font-bold">M</span></div>
-            <div className="flex-1 min-w-0"><p className="text-white font-medium truncate text-sm">Merchant</p><p className="text-gray-500 text-xs truncate">merchant@compass.com</p></div>
-            <Link href="/auth/login" className="p-2 text-gray-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-all"><FiLogOut className="w-4 h-4" /></Link>
-          </div>
-        </div>
-      </div>
-    </aside>
-  );
-};
+import { FiArrowLeft, FiArrowRight, FiCheck, FiStar, FiPercent, FiZap, FiCalendar, FiGift, FiClock, FiTarget } from 'react-icons/fi';
+import MerchantSidebar from '@/components/MerchantSidebar';
 
 const campaignTypes = [
   { id: 'points_multiplier', name: 'Points Multiplier', description: 'Multiply points earned on purchases', icon: FiStar, gradient: 'from-[#06b6d4] to-[#0891b2]' },
@@ -94,7 +52,7 @@ export default function NewCampaign() {
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#06b6d4]/10 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#22d3ee]/10 rounded-full blur-[120px]" />
       </div>
-      <Sidebar active="campaigns" />
+      <MerchantSidebar active="campaigns" />
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8 relative z-10">
         <header className="mb-6 sm:mb-8 animate-[fadeInDown_0.5s_ease-out]">
           <Link href="/merchant/campaigns" className="inline-flex items-center gap-2 text-gray-400 hover:text-[#06b6d4] transition-colors mb-4 text-sm sm:text-base">

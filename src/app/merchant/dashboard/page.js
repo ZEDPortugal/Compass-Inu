@@ -7,38 +7,71 @@ import { RiExchangeDollarLine, RiMegaphoneLine } from 'react-icons/ri';
 import MerchantSidebar from '@/components/MerchantSidebar';
 
 export default function MerchantDashboard() {
+  // Floating particles for visual effect
+  const particles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    duration: Math.random() * 20 + 10,
+    delay: Math.random() * 5,
+  }));
+
   const stats = [
-    { label: 'Total Revenue', value: '₱124,500', change: '+12.5%', trend: 'up', icon: FiDollarSign, gradient: 'from-[#22c55e] to-[#16a34a]' },
-    { label: 'Suki Points Issued', value: '45,200', change: '+8.2%', trend: 'up', icon: FiStar, gradient: 'from-[#06b6d4] to-[#0891b2]' },
-    { label: 'Active Suki', value: '2,456', change: '+15.3%', trend: 'up', icon: FiUsers, gradient: 'from-[#8b5cf6] to-[#7c3aed]' },
+    { label: 'Total Revenue', value: '$12,450', change: '+12.5%', trend: 'up', icon: FiDollarSign, gradient: 'from-[#22c55e] to-[#16a34a]' },
+    { label: 'Points Issued', value: '45,200', change: '+8.2%', trend: 'up', icon: FiStar, gradient: 'from-[#06b6d4] to-[#0891b2]' },
+    { label: 'Active Members', value: '2,456', change: '+15.3%', trend: 'up', icon: FiUsers, gradient: 'from-[#8b5cf6] to-[#7c3aed]' },
     { label: 'Redemptions', value: '234', change: '-3.1%', trend: 'down', icon: RiExchangeDollarLine, gradient: 'from-[#3b82f6] to-[#2563eb]' },
   ];
 
   const recentRedemptions = [
-    { id: 1, customer: 'Juan dela Cruz', reward: '20% Discount', points: 500, status: 'approved', time: '2 min ago' },
-    { id: 2, customer: 'Maria Santos', reward: 'Free Kape', points: 200, status: 'pending', time: '15 min ago' },
-    { id: 3, customer: 'Pedro Reyes', reward: '₱500 Voucher', points: 800, status: 'approved', time: '1 hour ago' },
-    { id: 4, customer: 'Ana Garcia', reward: 'Free Delivery', points: 300, status: 'approved', time: '2 hours ago' },
+    { id: 1, customer: 'Michael Johnson', reward: '20% Discount', points: 500, status: 'approved', time: '2 min ago' },
+    { id: 2, customer: 'Sarah Chen', reward: 'Free Coffee', points: 200, status: 'pending', time: '15 min ago' },
+    { id: 3, customer: 'David Park', reward: '$50 Voucher', points: 800, status: 'approved', time: '1 hour ago' },
+    { id: 4, customer: 'Emily Roberts', reward: 'Free Delivery', points: 300, status: 'approved', time: '2 hours ago' },
   ];
 
   const activeCampaigns = [
-    { id: 1, name: 'Double Points Weekend', type: 'Suki Multiplier', status: 'active', enrolled: 456 },
-    { id: 2, name: 'Bagong Taon Promo', type: 'Discount', status: 'active', enrolled: 823 },
-    { id: 3, name: 'Refer-a-Suki Bonus', type: 'Bonus Points', status: 'scheduled', enrolled: 0 },
+    { id: 1, name: 'Double Points Weekend', type: 'Multiplier', status: 'active', enrolled: 456 },
+    { id: 2, name: 'New Year Promo', type: 'Discount', status: 'active', enrolled: 823 },
+    { id: 3, name: 'Referral Bonus', type: 'Bonus Points', status: 'scheduled', enrolled: 0 },
   ];
 
   return (
     <div className="min-h-screen bg-[#0f0a1a]">
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#06b6d4]/10 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#22d3ee]/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#06b6d4]/10 rounded-full blur-[150px] animate-pulse" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#22d3ee]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/3 w-[300px] h-[300px] bg-[#0891b2]/5 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 opacity-[0.02]" style={{
+          backgroundImage: `linear-gradient(rgba(6,182,212,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(6,182,212,0.3) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+        
+        {/* Floating Particles */}
+        {particles.map((particle) => (
+          <div
+            key={particle.id}
+            className="absolute rounded-full bg-gradient-to-r from-[#06b6d4]/20 to-[#22d3ee]/20"
+            style={{
+              width: particle.size,
+              height: particle.size,
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              animation: `float ${particle.duration}s ease-in-out infinite`,
+              animationDelay: `${particle.delay}s`,
+            }}
+          />
+        ))}
       </div>
       <MerchantSidebar active="dashboard" />
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8 relative z-10">
         <header className="mb-6 sm:mb-8 flex flex-col sm:flex-row justify-between items-start gap-4 animate-[fadeInDown_0.5s_ease-out]">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Suki Points Dashboard</h1>
-            <p className="text-sm sm:text-base text-gray-400">Mabuhay! Here's your negosyo overview</p>
+            <p className="text-sm sm:text-base text-gray-400">Welcome! Here's your business overview</p>
           </div>
           <Link href="/merchant/campaigns/new" className="px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-[#06b6d4] to-[#0891b2] text-white rounded-xl font-medium flex items-center gap-2 hover:shadow-lg hover:shadow-cyan-500/25 transition-all text-sm sm:text-base w-full sm:w-auto justify-center">
             <FiPlus className="w-5 h-5" />New Campaign

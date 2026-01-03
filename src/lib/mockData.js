@@ -9,10 +9,10 @@ export const mockUsers = [
 ];
 
 export const mockMerchants = [
-  { id: 1, name: 'Coffee House', email: 'coffee@example.com', category: 'Food & Beverage', status: 'approved', campaigns: 3, totalRedemptions: 450, joinedAt: '2025-04-10' },
-  { id: 2, name: 'Tech Store', email: 'tech@example.com', category: 'Electronics', status: 'approved', campaigns: 5, totalRedemptions: 280, joinedAt: '2025-03-15' },
-  { id: 3, name: 'Fashion Hub', email: 'fashion@example.com', category: 'Retail', status: 'pending', campaigns: 0, totalRedemptions: 0, joinedAt: '2025-12-28' },
-  { id: 4, name: 'Gym Plus', email: 'gym@example.com', category: 'Health & Fitness', status: 'approved', campaigns: 2, totalRedemptions: 120, joinedAt: '2025-06-20' },
+  { id: 1, name: 'Urban Café', email: 'cafe@example.com', category: 'Food & Beverage', status: 'approved', campaigns: 3, totalRedemptions: 450, joinedAt: '2025-04-10' },
+  { id: 2, name: 'TechMart Electronics', email: 'tech@example.com', category: 'Electronics', status: 'approved', campaigns: 5, totalRedemptions: 280, joinedAt: '2025-03-15' },
+  { id: 3, name: 'Fashion Forward', email: 'fashion@example.com', category: 'Retail', status: 'pending', campaigns: 0, totalRedemptions: 0, joinedAt: '2025-12-28' },
+  { id: 4, name: 'FitLife Gym', email: 'gym@example.com', category: 'Health & Fitness', status: 'approved', campaigns: 2, totalRedemptions: 120, joinedAt: '2025-06-20' },
   { id: 5, name: 'Book World', email: 'books@example.com', category: 'Education', status: 'rejected', campaigns: 0, totalRedemptions: 0, joinedAt: '2025-11-10' },
 ];
 

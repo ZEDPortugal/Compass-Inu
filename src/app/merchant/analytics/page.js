@@ -10,10 +10,10 @@ export default function MerchantAnalytics() {
   const [timeRange, setTimeRange] = useState('7d');
 
   const metrics = [
-    { label: 'Kita (Revenue)', value: '₱647,400', change: '+12.5%', trend: 'up', icon: FiDollarSign, gradient: 'from-[#22c55e] to-[#16a34a]' },
-    { label: 'Suki Points Issued', value: '45,200', change: '+8.2%', trend: 'up', icon: FiStar, gradient: 'from-[#06b6d4] to-[#0891b2]' },
-    { label: 'Suki Redemptions', value: '234', change: '-3.1%', trend: 'down', icon: RiExchangeDollarLine, gradient: 'from-[#8b5cf6] to-[#7c3aed]' },
-    { label: 'Bagong Suki', value: '89', change: '+15.3%', trend: 'up', icon: FiUsers, gradient: 'from-[#3b82f6] to-[#2563eb]' },
+    { label: 'Revenue', value: '$64,740', change: '+12.5%', trend: 'up', icon: FiDollarSign, gradient: 'from-[#22c55e] to-[#16a34a]' },
+    { label: 'Points Issued', value: '45,200', change: '+8.2%', trend: 'up', icon: FiStar, gradient: 'from-[#06b6d4] to-[#0891b2]' },
+    { label: 'Redemptions', value: '234', change: '-3.1%', trend: 'down', icon: RiExchangeDollarLine, gradient: 'from-[#8b5cf6] to-[#7c3aed]' },
+    { label: 'New Customers', value: '89', change: '+15.3%', trend: 'up', icon: FiUsers, gradient: 'from-[#3b82f6] to-[#2563eb]' },
   ];
 
   const chartData = [
@@ -31,8 +31,8 @@ export default function MerchantAnalytics() {
 
   const topRewards = [
     { name: '20% Off Purchase', redemptions: 89, percentage: 38 },
-    { name: 'Free Kape', redemptions: 67, percentage: 29 },
-    { name: '₱500 Voucher', redemptions: 45, percentage: 19 },
+    { name: 'Free Coffee', redemptions: 67, percentage: 29 },
+    { name: '$50 Voucher', redemptions: 45, percentage: 19 },
     { name: 'Free Delivery', redemptions: 33, percentage: 14 },
   ];
 
