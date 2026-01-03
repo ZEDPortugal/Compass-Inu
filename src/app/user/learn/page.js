@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { FiBook, FiStar, FiBell, FiClock, FiAward, FiTrendingUp, FiUsers, FiPlay, FiLock, FiCheckCircle, FiArrowRight } from 'react-icons/fi';
+import { FiBook, FiStar, FiBell, FiClock, FiAward, FiTrendingUp, FiUsers, FiPlay, FiLock, FiCheckCircle, FiArrowRight, FiBookOpen } from 'react-icons/fi';
+import { IoFlameSharp } from 'react-icons/io5';
 import { BsLightningChargeFill, BsBookHalf, BsTrophy, BsGraphUp } from 'react-icons/bs';
 import { HiOutlineSparkles, HiOutlineAcademicCap, HiOutlineLightBulb } from 'react-icons/hi';
 import { RiMedalLine } from 'react-icons/ri';
@@ -74,9 +75,9 @@ export default function LearnDashboard() {
   ];
 
   const recentBadges = [
-    { id: 1, name: 'First Article', icon: '📖', description: 'Read your first article' },
-    { id: 2, name: '7-Day Streak', icon: '🔥', description: 'Read for 7 days in a row' },
-    { id: 3, name: 'Web3 Novice', icon: '🎓', description: 'Complete Web3 Fundamentals track' },
+    { id: 1, name: 'First Article', Icon: FiBookOpen, color: 'text-[#8b5cf6]', description: 'Read your first article' },
+    { id: 2, name: '7-Day Streak', Icon: IoFlameSharp, color: 'text-orange-500', description: 'Read for 7 days in a row' },
+    { id: 3, name: 'Web3 Novice', Icon: HiOutlineAcademicCap, color: 'text-[#a78bfa]', description: 'Complete Web3 Fundamentals track' },
   ];
 
   return (
@@ -105,7 +106,7 @@ export default function LearnDashboard() {
           {[
             { label: 'Learning Points', value: userStats.totalPoints, icon: FiStar, color: 'text-[#8b5cf6]' },
             { label: 'Articles Read', value: userStats.articlesRead, icon: BsBookHalf, color: 'text-[#a78bfa]' },
-            { label: 'Day Streak', value: `${userStats.streakDays} 🔥`, icon: BsLightningChargeFill, color: 'text-[#7c3aed]' },
+            { label: 'Day Streak', value: userStats.streakDays, icon: BsLightningChargeFill, color: 'text-[#7c3aed]', showFlame: true },
             { label: 'Badges Earned', value: userStats.badges, icon: RiMedalLine, color: 'text-[#8b5cf6]' },
           ].map((stat, index) => (
             <div
@@ -114,7 +115,10 @@ export default function LearnDashboard() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <stat.icon className={`w-6 h-6 ${stat.color} mb-2`} />
-              <p className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2">
+                {stat.value}
+                {stat.showFlame && <IoFlameSharp className="w-5 h-5 text-orange-500" />}
+              </p>
               <p className="text-xs sm:text-sm text-gray-400">{stat.label}</p>
             </div>
           ))}
@@ -255,7 +259,9 @@ export default function LearnDashboard() {
               <div className="space-y-3">
                 {recentBadges.map((badge) => (
                   <div key={badge.id} className="flex items-center gap-3 p-3 bg-[#0f0a1a]/50 rounded-xl">
-                    <span className="text-2xl">{badge.icon}</span>
+                    <div className="w-10 h-10 rounded-lg bg-[#1e1433] flex items-center justify-center">
+                      <badge.Icon className={`w-5 h-5 ${badge.color}`} />
+                    </div>
                     <div>
                       <p className="font-medium text-white">{badge.name}</p>
                       <p className="text-xs text-gray-500">{badge.description}</p>

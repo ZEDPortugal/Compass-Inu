@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { FiCreditCard, FiStar, FiBell, FiTrendingUp, FiShield, FiAward, FiCheckCircle, FiClock, FiDownload, FiArrowRight, FiLock } from 'react-icons/fi';
+import { IoFlameSharp } from 'react-icons/io5';
 import { BsBank, BsCashCoin, BsGraphUp, BsShieldCheck } from 'react-icons/bs';
 import { HiOutlineSparkles, HiOutlineBadgeCheck } from 'react-icons/hi';
 import { RiMedalLine, RiVipCrownLine } from 'react-icons/ri';
@@ -114,7 +115,7 @@ export default function BorrowDashboard() {
                   <FiTrendingUp className="text-green-400" />
                   <span className="text-gray-400 text-sm">Repayment Streak</span>
                 </div>
-                <p className="text-xl font-bold text-white">{creditProfile.repaymentStreak} 🔥</p>
+                <p className="text-xl font-bold text-white flex items-center gap-2">{creditProfile.repaymentStreak} <IoFlameSharp className="w-5 h-5 text-orange-500" /></p>
                 <p className="text-xs text-gray-500">Bi-weekly periods</p>
               </div>
               <div className="bg-[#0f0a1a]/50 rounded-xl p-4 border border-[#3d2d5c]/30">
