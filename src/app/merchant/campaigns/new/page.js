@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { FiArrowLeft, FiArrowRight, FiCheck, FiStar, FiPercent, FiZap, FiCalendar, FiGift, FiClock, FiTarget } from 'react-icons/fi';
+import { RiMegaphoneLine } from 'react-icons/ri';
 import MerchantSidebar from '@/components/MerchantSidebar';
 
 const campaignTypes = [
