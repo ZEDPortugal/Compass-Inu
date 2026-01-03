@@ -433,6 +433,16 @@ body {
   animation: float 3s ease-in-out infinite;
 }
 
+@keyframes scan {
+  0% { top: 0; }
+  50% { top: calc(100% - 4px); }
+  100% { top: 0; }
+}
+
+.animate-scan {
+  animation: scan 2s ease-in-out infinite;
+}
+
 @keyframes glow {
   0%, 100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
   50% { box-shadow: 0 0 40px rgba(139, 92, 246, 0.8); }

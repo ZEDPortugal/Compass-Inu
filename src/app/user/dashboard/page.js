@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FiStar, FiTrendingUp, FiAward, FiShoppingBag, FiArrowUp, FiGift } from 'react-icons/fi';
+import { FiStar, FiTrendingUp, FiAward, FiShoppingBag, FiArrowUp, FiGift, FiSmile } from 'react-icons/fi';
 import { RiExchangeDollarLine } from 'react-icons/ri';
 import UserSidebar from '@/components/UserSidebar';
 
@@ -70,7 +70,7 @@ export default function UserDashboard() {
       <UserSidebar active="dashboard" />
       <main className="lg:ml-64 p-4 sm:p-6 lg:p-8 relative z-10">
         <header className="mb-6 sm:mb-8 animate-[fadeInDown_0.5s_ease-out]">
-          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Welcome back, {userData.name}! 👋</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">Welcome back, {userData.name}!</h1>
           <p className="text-sm sm:text-base text-gray-400">Here's your COMPASS INU rewards overview</p>
         </header>
 

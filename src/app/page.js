@@ -190,15 +190,15 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0f0a1a] relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#0f0a1a] relative overflow-hidden">
       <ParticlesBackground />
       
-      {/* Global Animated Gradient Blobs */}
+      {/* Global Animated Gradient Blobs - contained within viewport */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[10%] left-[10%] w-[500px] h-[500px] bg-[#8b5cf6]/15 rounded-full blur-[150px] animate-pulse"></div>
-        <div className="absolute top-[30%] right-[5%] w-[400px] h-[400px] bg-[#06b6d4]/12 rounded-full blur-[130px] animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-[60%] left-[20%] w-[350px] h-[350px] bg-[#f59e0b]/8 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-[80%] right-[15%] w-[400px] h-[400px] bg-[#ec4899]/8 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
+        <div className="absolute top-[10%] left-[5%] w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-[#8b5cf6]/15 rounded-full blur-[100px] sm:blur-[150px] animate-pulse"></div>
+        <div className="absolute top-[30%] right-[5%] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] bg-[#06b6d4]/12 rounded-full blur-[100px] sm:blur-[130px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-[55%] left-[10%] w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] lg:w-[350px] lg:h-[350px] bg-[#f59e0b]/8 rounded-full blur-[80px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-[75%] right-[10%] w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] lg:w-[400px] lg:h-[400px] bg-[#ec4899]/8 rounded-full blur-[80px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
       </div>
       
       {/* Navigation */}
@@ -322,7 +322,7 @@ export default function Home() {
                 Empowering
                 <br />
                 <span className="bg-gradient-to-r from-[#8b5cf6] via-[#ec4899] to-[#06b6d4] bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient">
-                  Global Growth
+                  Filipino Growth
                 </span>
               </h1>
             </AnimatedSection>
