@@ -21,9 +21,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${inter.variable} ${poppins.variable} antialiased font-sans bg-[#0f0a1a] text-white`}
+        suppressHydrationWarning
       >
         <Providers>
           {children}
