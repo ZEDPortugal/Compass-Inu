@@ -164,14 +164,9 @@ export default function UserSignUp() {
       {/* Left Panel - Branding */}
       <div className="hidden lg:flex lg:w-1/2 relative z-10 flex-col justify-between p-12 animate-[fadeInLeft_0.8s_ease-out]">
         <div>
-          <Link href="/" className="inline-flex items-center gap-3 group">
-            <img 
-              src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
-              alt="Compass Inu Logo" 
-              className="w-12 h-12 rounded-xl group-hover:scale-105 transition-transform"
-            />
+          <Link href="/" className="inline-flex items-center group">
             <span className="text-3xl font-black text-white">Compass</span>
-            <span className="text-3xl font-black text-[#f59e0b]">Inu</span>
+            <span className="text-3xl font-black text-[#f59e0b] ml-2">Inu</span>
           </Link>
         </div>
         
@@ -225,14 +220,9 @@ export default function UserSignUp() {
         <div className="w-full max-w-md">
           {/* Mobile Logo */}
           <div className="lg:hidden text-center mb-8">
-            <Link href="/" className="inline-flex items-center gap-3 justify-center">
-              <img 
-                src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
-                alt="Compass Inu Logo" 
-                className="w-10 h-10 rounded-xl"
-              />
+            <Link href="/" className="inline-flex items-center justify-center">
               <span className="text-2xl font-black text-white">Compass</span>
-              <span className="text-2xl font-black text-[#f59e0b]">Inu</span>
+              <span className="text-2xl font-black text-[#f59e0b] ml-1">Inu</span>
             </Link>
           </div>
 

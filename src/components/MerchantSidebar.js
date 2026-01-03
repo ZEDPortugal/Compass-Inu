@@ -37,13 +37,9 @@ export default function MerchantSidebar({ active }) {
     <>
       {/* Mobile Header */}
       <header className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-[#0f0a1a]/95 backdrop-blur-xl border-b border-[#3d2d5c]/50 z-50 px-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <img 
-            src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
-            alt="Compass Inu Logo" 
-            className="w-8 h-8 rounded-lg"
-          />
-          <h1 className="text-white font-bold text-lg">Compass <span className="text-[#06b6d4]">Inu</span></h1>
+        <Link href="/" className="flex items-center">
+          <span className="text-xl font-black text-white">Compass</span>
+          <span className="text-xl font-black text-[#06b6d4] ml-1">Inu</span>
         </Link>
         <button 
           onClick={() => setIsOpen(!isOpen)} 
@@ -66,14 +62,12 @@ export default function MerchantSidebar({ active }) {
         isMobile ? (isOpen ? 'translate-x-0' : '-translate-x-full') : 'translate-x-0'
       } lg:translate-x-0`}>
         <div className="p-6 h-full flex flex-col">
-          <Link href="/" className="flex items-center gap-3 mb-8 group" onClick={() => isMobile && setIsOpen(false)}>
-            <img 
-              src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
-              alt="Compass Inu Logo" 
-              className="w-10 h-10 rounded-xl group-hover:scale-105 transition-transform"
-            />
+          <Link href="/" className="flex items-center mb-8 group" onClick={() => isMobile && setIsOpen(false)}>
             <div>
-              <h1 className="text-white font-bold text-xl group-hover:text-[#06b6d4] transition-colors">Compass Inu</h1>
+              <div className="flex items-center">
+                <span className="text-xl font-black text-white group-hover:text-[#22d3ee] transition-colors">Compass</span>
+                <span className="text-xl font-black text-[#06b6d4] ml-1">Inu</span>
+              </div>
               <p className="text-gray-500 text-xs">Merchant Portal</p>
             </div>
           </Link>

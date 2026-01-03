@@ -209,18 +209,9 @@ export default function Home() {
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#8b5cf6]/20 via-transparent to-[#06b6d4]/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             
             {/* Logo */}
-            <Link href="/" className="relative flex items-center gap-2 sm:gap-3 group z-10">
-              <div className="relative flex items-center">
-                <img 
-                  src="https://images.pump.fun/coin-image/AEwvZ4Lpzt5rx4G9q4bntR2t6L7KLHvwY4kArFfWpump?variant=600x600&ipfs=bafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe&src=https%3A%2F%2Fipfs.io%2Fipfs%2Fbafkreihvqburnirltnnuxnzsj7svzulyhsy323q3om2yqzn6phrk7cbnqe" 
-                  alt="Compass Inu Logo" 
-                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow-lg shadow-purple-500/30 group-hover:shadow-purple-500/50 transition-shadow"
-                />
-                <div className="ml-2 sm:ml-3">
-                  <span className="text-lg sm:text-xl font-black text-white">Compass</span>
-                  <span className="text-lg sm:text-xl font-black text-[#f59e0b] ml-1">Inu</span>
-                </div>
-              </div>
+            <Link href="/" className="relative flex items-center group z-10">
+              <span className="text-xl sm:text-2xl font-black bg-gradient-to-r from-white via-[#a78bfa] to-white bg-clip-text text-transparent bg-[length:200%_auto] animate-shimmer">Compass</span>
+              <span className="text-xl sm:text-2xl font-black text-[#f59e0b] ml-1 group-hover:text-[#fbbf24] transition-colors">Inu</span>
             </Link>
 
             {/* Nav Links - Center (Desktop only) */}
