@@ -126,16 +126,6 @@ const ParticlesBackground = () => {
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [scrolled, setScrolled] = useState(false);
-
-  // Handle scroll for navbar background
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
@@ -211,14 +201,12 @@ export default function Home() {
         <div className="absolute top-[80%] right-[15%] w-[400px] h-[400px] bg-[#ec4899]/8 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1.5s' }}></div>
       </div>
       
-      {/* Navigation - Fixed with proper scroll handling */}
-      <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? 'py-2' : 'py-3 sm:py-4'}`}>
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 py-2 sm:py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className={`relative flex justify-between items-center h-14 sm:h-16 px-4 sm:px-6 rounded-2xl transition-all duration-500 ${
-            scrolled 
-              ? 'bg-[#0f0a1a]/95 backdrop-blur-xl border border-[#3d2d5c]/60 shadow-xl shadow-purple-500/5' 
-              : 'bg-[#1a0f2e]/40 backdrop-blur-lg border border-[#3d2d5c]/30'
-          }`}>
+          <div className="relative flex justify-between items-center h-14 sm:h-16 px-4 sm:px-6 rounded-2xl bg-[#1a0f2e]/60 backdrop-blur-xl border border-[#3d2d5c]/40 shadow-lg shadow-purple-500/5">
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#8b5cf6]/20 via-transparent to-[#06b6d4]/20 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
             
             {/* Logo */}
             <Link href="/" className="relative flex items-center gap-2 sm:gap-3 group z-10">
@@ -237,7 +225,7 @@ export default function Home() {
 
             {/* Nav Links - Center (Desktop only) */}
             <div className="hidden lg:flex items-center absolute left-1/2 -translate-x-1/2">
-              <div className="flex items-center bg-[#1e1433]/50 rounded-xl p-1 border border-[#3d2d5c]/30">
+              <div className="flex items-center gap-1">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.sectionId;
                   return (
@@ -245,13 +233,16 @@ export default function Home() {
                       key={link.name}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg ${
-                        isActive 
-                          ? 'text-white bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] shadow-lg shadow-purple-500/25' 
-                          : 'text-gray-400 hover:text-white hover:bg-[#3d2d5c]/30'
-                      }`}
+                      className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-xl group overflow-hidden ${isActive ? 'text-white' : 'text-gray-400 hover:text-white'}`}
                     >
-                      {link.name}
+                      <span className="absolute inset-0 bg-gradient-to-r from-[#8b5cf6]/0 via-[#8b5cf6]/10 to-[#8b5cf6]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></span>
+                      <span className="relative flex items-center gap-2">
+                        {link.name}
+                      </span>
+                      <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-gradient-to-r from-[#8b5cf6] to-[#06b6d4] transition-all duration-300 rounded-full ${isActive ? 'w-3/4' : 'w-0 group-hover:w-3/4'}`}></span>
+                      {isActive && (
+                        <span className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#8b5cf6] rounded-full animate-pulse"></span>
+                      )}
                     </a>
                   );
                 })}
@@ -259,20 +250,22 @@ export default function Home() {
             </div>
 
             {/* Auth Buttons (Desktop) */}
-            <div className="hidden sm:flex items-center gap-3 z-10">
+            <div className="hidden sm:flex items-center gap-2 z-10">
               <Link 
                 href="/auth/login" 
-                className="px-4 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 rounded-xl hover:bg-[#1e1433]/50"
+                className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white font-medium transition-all duration-300 rounded-xl border border-transparent hover:border-[#3d2d5c] hover:bg-[#1e1433]/50 group"
               >
+                <span className="w-2 h-2 rounded-full bg-[#3d2d5c] group-hover:bg-[#8b5cf6] transition-colors"></span>
                 Sign In
               </Link>
               <Link 
                 href="/auth/signup" 
-                className="relative group overflow-hidden bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.02]"
+                className="relative group overflow-hidden bg-gradient-to-r from-[#8b5cf6] to-[#7c3aed] text-white px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl font-semibold transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/50 hover:scale-[1.02]"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
                 <span className="relative flex items-center gap-2">
-                  Get Started
+                  <span className="hidden sm:inline">Get Started</span>
+                  <span className="sm:hidden">Start</span>
                   <FiArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
               </Link>
@@ -288,9 +281,9 @@ export default function Home() {
           </div>
 
           {/* Mobile Menu */}
-          <div className={`sm:hidden transition-all duration-300 overflow-hidden ${mobileMenuOpen ? 'max-h-96 mt-2' : 'max-h-0'}`}>
-            <div className="p-4 rounded-2xl bg-[#0f0a1a]/95 backdrop-blur-xl border border-[#3d2d5c]/60">
-              <div className="space-y-1 mb-4">
+          {mobileMenuOpen && (
+            <div className="sm:hidden mt-2 p-4 rounded-2xl bg-[#1a0f2e]/95 backdrop-blur-xl border border-[#3d2d5c]/40 animate-fadeIn">
+              <div className="space-y-2 mb-4">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.sectionId;
                   return (
@@ -298,18 +291,17 @@ export default function Home() {
                       key={link.name}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      className={`block px-4 py-3 rounded-xl transition-all duration-300 ${
-                        isActive 
-                          ? 'text-white bg-gradient-to-r from-[#8b5cf6]/20 to-[#7c3aed]/10 border border-[#8b5cf6]/30' 
-                          : 'text-gray-400 hover:text-white hover:bg-[#1e1433]'
-                      }`}
+                      className={`block px-4 py-3 rounded-xl transition-colors ${isActive ? 'text-white bg-[#8b5cf6]/20 border border-[#8b5cf6]/30' : 'text-gray-300 hover:text-white hover:bg-[#1e1433]'}`}
                     >
-                      {link.name}
+                      <span className="flex items-center gap-2">
+                        {isActive && <span className="w-2 h-2 bg-[#8b5cf6] rounded-full animate-pulse"></span>}
+                        {link.name}
+                      </span>
                     </a>
                   );
                 })}
               </div>
-              <div className="space-y-2 pt-4 border-t border-[#3d2d5c]/50">
+              <div className="space-y-2 pt-4 border-t border-[#3d2d5c]">
                 <Link 
                   href="/auth/login"
                   onClick={() => setMobileMenuOpen(false)}
@@ -326,7 +318,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </nav>
 
